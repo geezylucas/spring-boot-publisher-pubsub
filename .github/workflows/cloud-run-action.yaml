@@ -40,4 +40,5 @@ jobs:
           --allow-unauthenticated \
           --max-instances=1 \
           --min-instances=1 \
+          --no-cpu-throttling \
           --project ${{ secrets.GCP_PROJECT_ID }}
