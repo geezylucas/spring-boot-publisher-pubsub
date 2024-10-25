@@ -29,6 +29,6 @@ public class HelloPubSubController {
 
         publisher.publish(userMessage);
 
-        return Mono.just("Message published");
+        return Mono.just("Message published codigofacilito");
     }
 }
