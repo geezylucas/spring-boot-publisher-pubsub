@@ -29,7 +29,7 @@ public class HelloPubSubController {
 
         // create instance of Random class
         SecureRandom rand = new SecureRandom();
-        UserMessage userMessage = new UserMessage(userMessageDTO.body(), userMessageDTO.username(), rand.nextInt(1, 3), LocalDateTime.now());
+        UserMessage userMessage = new UserMessage(userMessageDTO.body(), userMessageDTO.username(), rand.nextInt(3), LocalDateTime.now());
 
         publisher.publish(userMessage);
 
