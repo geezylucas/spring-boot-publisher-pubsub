@@ -13,5 +13,6 @@ public class UserMessage {
 
     private String body;
     private String username;
+    private int random;
     private LocalDateTime createdAt;
 }

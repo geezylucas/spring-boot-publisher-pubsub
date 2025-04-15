@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
+import java.security.SecureRandom;
 import java.time.LocalDateTime;
+import java.util.Random;
 
 @Slf4j
 @RestController
@@ -25,10 +27,12 @@ public class HelloPubSubController {
     public Mono<String> publish(@RequestBody UserMessageDTO userMessageDTO) {
         log.info("Received a POST at /v1/publish with message: {}", userMessageDTO);
 
-        UserMessage userMessage = new UserMessage(userMessageDTO.body(), userMessageDTO.username(), LocalDateTime.now());
+        // create instance of Random class
+        SecureRandom rand = new SecureRandom();
+        UserMessage userMessage = new UserMessage(userMessageDTO.body(), userMessageDTO.username(), rand.nextInt(3), LocalDateTime.now());
 
         publisher.publish(userMessage);
 
-        return Mono.just("Message published codigofacilito");
+        return Mono.just("Message published!");
     }
 }
